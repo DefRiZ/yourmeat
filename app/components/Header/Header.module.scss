@@ -1,0 +1,45 @@
+.header {
+  position: relative;
+  .background {
+    z-index: -1;
+    position: absolute;
+  }
+  .container {
+    max-width: 1290px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .logo {
+    margin: 24px auto 53px auto;
+  }
+  .info {
+    display: flex;
+
+    .text {
+      margin-left: 74px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      .mainText {
+        font-size: 5rem;
+        line-height: 6rem;
+        color: #ffffff;
+        span {
+          font-size: inherit;
+          line-height: inherit;
+          color: #ff5c00;
+        }
+      }
+      .secondText {
+        margin-top: 54px;
+        margin-bottom: 182px;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        color: #ffffff;
+      }
+    }
+  }
+}
