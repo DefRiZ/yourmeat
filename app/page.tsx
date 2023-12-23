@@ -1,9 +1,12 @@
-import styles from "./page.module.css";
+import { Cart } from "./components/Cart/Cart";
+import Menu from "./components/Menu/Menu";
+import styles from "./page.module.scss";
 
 export default function Home() {
   return (
-    <main>
-      <h1>Salam</h1>
+    <main className={styles.root}>
+      <Cart />
+      <Menu />
     </main>
   );
 }
