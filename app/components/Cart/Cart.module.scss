@@ -1,0 +1,27 @@
+.rootEmpty {
+  background: #ffffff;
+  border-radius: 30px;
+  padding: 26px 16px;
+  height: 109px;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    .title {
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+    }
+    .count {
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+      background-color: #f2f2f3;
+      padding: 2px 16px;
+      border-radius: 6px;
+    }
+  }
+  .text {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+}

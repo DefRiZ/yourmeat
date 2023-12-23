@@ -1,0 +1,40 @@
+.root {
+  background-color: #ffffff;
+  .container {
+    max-width: 1290px;
+    margin: 0 auto;
+    padding-top: 52px;
+    padding-bottom: 39px;
+    .info {
+      display: flex;
+      justify-content: space-between;
+
+      .phone,
+      .social {
+        h2 {
+          font-size: 2.4rem;
+          line-height: 2.4rem;
+          margin-bottom: 24px;
+        }
+      }
+      .phone {
+        .number {
+          display: flex;
+          align-items: center;
+          font-size: 1.6rem;
+          line-height: 2rem;
+        }
+      }
+    }
+    .copyright {
+      margin-top: 44px;
+      p {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        &:first-of-type {
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+}

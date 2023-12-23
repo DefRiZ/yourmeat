@@ -6,7 +6,7 @@ import logo from "../../../public/header/logo.svg";
 import burger from "../../../public/header/burger-header.png";
 import bg from "../../../public/header/bg-ellipse.svg";
 
-export const Header = () => {
+const Header = () => {
   return (
     <header className={styles.header}>
       <Image
@@ -37,3 +37,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;
