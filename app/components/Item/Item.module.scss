@@ -26,4 +26,21 @@
     color: #b1b1b1;
     margin-bottom: 8px;
   }
+  .button {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    margin: 0 auto;
+    padding: 12px 101px;
+    background-color: #f2f2f3;
+    border-radius: 12px;
+    transition-duration: 500ms;
+    &:hover {
+      scale: 1.01;
+      background-color: #ffab08;
+    }
+    &:active {
+      scale: 1.01;
+      background-color: #f86310;
+    }
+  }
 }

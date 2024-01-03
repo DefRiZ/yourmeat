@@ -1,14 +1,22 @@
+"use client";
+import React from "react";
+import { useProductsStore } from "@/app/store";
 import Item from "../Item/Item";
 import styles from "./Menu.module.scss";
+import { productType } from "@/types/productType";
 
 const Menu = () => {
-  return (
-    <div className={styles.root}>
-      <Item />
-      <Item />
-      <Item />
-    </div>
-  );
+  const { products, fetchProducts, isLoading, category } = useProductsStore();
+  React.useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts, category]);
+  const productsList = products.map((product: productType) => (
+    <Item key={product.id} {...product} />
+  ));
+  if (isLoading) {
+    return <h1>Load</h1>;
+  }
+  return <div className={styles.root}>{productsList}</div>;
 };
 
 export default Menu;
