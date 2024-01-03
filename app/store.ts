@@ -21,7 +21,7 @@ type productCartArgs = {
   removeProduct: (product: productType) => void;
 };
 
-export const useProductsStore = create<productsStoreArgs>()((set, get) => ({
+export const useProductsStore = create<productsStoreArgs>((set, get) => ({
   products: [],
   isLoading: true,
   category: 0,
@@ -40,7 +40,7 @@ export const useProductsStore = create<productsStoreArgs>()((set, get) => ({
   setCategory: (newCategory: number) => set({ category: newCategory }),
 }));
 
-export const useProductsCart = create<productCartArgs>()((set) => ({
+export const useProductsCart = create<productCartArgs>((set) => ({
   cart: [],
   totalPrice: 0,
   totalCount: 0,
