@@ -1,0 +1,45 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-width: 1px 0px 1px 0px;
+  border-style: solid;
+  border-color: #f2f2f3;
+  .left {
+    display: flex;
+    .image {
+      border-radius: 8px;
+    }
+    .info {
+      .title,
+      .weight,
+      .price {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        display: block;
+      }
+      .price {
+        margin-top: 6px;
+      }
+    }
+  }
+  .right {
+    align-self: center;
+    padding: 9px 12px;
+    background-color: #f2f2f3;
+    border-radius: 12px;
+    .quantity,
+    .button {
+      font-size: 1.6rem;
+      line-height: 2.1rem;
+    }
+    .quantity {
+      margin: 0 16px;
+    }
+    .button {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

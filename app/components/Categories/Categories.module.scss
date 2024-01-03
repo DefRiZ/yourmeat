@@ -11,8 +11,14 @@
       border-radius: 30px;
       padding: 9px 14px;
       cursor: pointer;
+      transition-duration: 500ms;
       &:hover {
-        opacity: 0.8;
+        scale: 1.01;
+        background-color: #ffab08;
+      }
+      &:active {
+        scale: 1.01;
+        background-color: #f86310;
       }
       span {
         font-size: 1.6rem;
@@ -27,9 +33,6 @@
       border-radius: 30px;
       padding: 9px 14px;
       cursor: pointer;
-      &:hover {
-        opacity: 0.8;
-      }
       span {
         font-size: 1.6rem;
         line-height: 2.2rem;
