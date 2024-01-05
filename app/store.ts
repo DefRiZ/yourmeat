@@ -1,5 +1,6 @@
 import { productType } from "@/types/productType";
 import { create } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 
 type fetchArgs = {
   category: number;
@@ -40,61 +41,68 @@ export const useProductsStore = create<productsStoreArgs>((set, get) => ({
   setCategory: (newCategory: number) => set({ category: newCategory }),
 }));
 
-export const useProductsCart = create<productCartArgs>((set) => ({
-  cart: [],
-  totalPrice: 0,
-  totalCount: 0,
-  addToCart: (product) => {
-    set((state) => {
-      const existingProductIndex = state.cart.findIndex(
-        (item) => item.id === product.id
-      );
+export const useProductsCart = create<productCartArgs>()(
+  devtools(
+    persist(
+      (set) => ({
+        cart: [],
+        totalPrice: 0,
+        totalCount: 0,
+        addToCart: (product) => {
+          set((state) => {
+            const existingProductIndex = state.cart.findIndex(
+              (item) => item.id === product.id
+            );
 
-      if (existingProductIndex !== -1) {
-        // Product already in cart, increase quantity
-        const updatedCart = [...state.cart];
-        updatedCart[existingProductIndex].quantity += 1;
+            if (existingProductIndex !== -1) {
+              // Product already in cart, increase quantity
+              const updatedCart = [...state.cart];
+              updatedCart[existingProductIndex].quantity += 1;
 
-        return {
-          cart: updatedCart,
-          totalCount: state.totalCount + 1,
-          totalPrice: state.totalPrice + product.price,
-        };
-      } else {
-        // Product not in cart, add to cart
-        return {
-          cart: [...state.cart, { ...product, quantity: 1 }],
-          totalCount: state.totalCount + 1,
-          totalPrice: state.totalPrice + product.price,
-        };
-      }
-    });
-  },
-  removeProduct: (product) => {
-    set((state) => {
-      const existingProductIndex = state.cart.findIndex(
-        (item) => item.id === product.id
-      );
+              return {
+                cart: updatedCart,
+                totalCount: state.totalCount + 1,
+                totalPrice: state.totalPrice + product.price,
+              };
+            } else {
+              // Product not in cart, add to cart
+              return {
+                cart: [...state.cart, { ...product, quantity: 1 }],
+                totalCount: state.totalCount + 1,
+                totalPrice: state.totalPrice + product.price,
+              };
+            }
+          });
+        },
+        removeProduct: (product) => {
+          set((state) => {
+            const existingProductIndex = state.cart.findIndex(
+              (item) => item.id === product.id
+            );
 
-      if (existingProductIndex !== -1) {
-        // const updatedCart = [...state.cart];
+            if (existingProductIndex !== -1) {
+              // const updatedCart = [...state.cart];
 
-        if (state.cart[existingProductIndex].quantity > 1) {
-          // Decrease quantity if more than 1
-          state.cart[existingProductIndex].quantity -= 1;
-        } else {
-          // Remove item from cart if quantity is 1
-          state.cart.splice(existingProductIndex, 1);
-        }
+              if (state.cart[existingProductIndex].quantity > 1) {
+                // Decrease quantity if more than 1
+                state.cart[existingProductIndex].quantity -= 1;
+              } else {
+                // Remove item from cart if quantity is 1
+                state.cart.splice(existingProductIndex, 1);
+              }
 
-        return {
-          cart: state.cart,
-          totalCount: state.totalCount - 1,
-          totalPrice: state.totalPrice - product.price,
-        };
-      }
+              return {
+                cart: state.cart,
+                totalCount: state.totalCount - 1,
+                totalPrice: state.totalPrice - product.price,
+              };
+            }
 
-      return state;
-    });
-  },
-}));
+            return state;
+          });
+        },
+      }),
+      { name: "burger storage" }
+    )
+  )
+);
