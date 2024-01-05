@@ -25,20 +25,40 @@
   }
   .right {
     align-self: center;
-    padding: 9px 12px;
-    background-color: #f2f2f3;
-    border-radius: 12px;
+    // padding: 9px 12px;
+    // background-color: #f2f2f3;
+    // border-radius: 12px;
+    display: flex;
+    justify-content: flex-start;
     .quantity,
     .button {
       font-size: 1.6rem;
       line-height: 2.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f2f2f3;
+      width: 32px;
+      height: 36px;
     }
     .quantity {
-      margin: 0 16px;
+      width: 30px;
     }
     .button {
+      transition-duration: 500ms;
+      &:first-of-type {
+        border-radius: 12px 0px 0px 12px;
+      }
+      &:last-of-type {
+        border-radius: 0px 12px 12px 0px;
+      }
       &:hover {
         cursor: pointer;
+        background-color: #ffab08;
+      }
+      &:active {
+        background-color: #f86310;
+        scale: 1.01;
       }
     }
   }
