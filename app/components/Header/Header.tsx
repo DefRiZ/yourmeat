@@ -15,6 +15,13 @@ const Header = () => {
         alt="bg design ellipse"
         fill
       />
+      <Image
+        className={styles.backgroundSmall}
+        src={bg}
+        alt="bg design ellipse"
+        fill
+        style={{ objectFit: "cover" }}
+      />
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link href="/">
@@ -23,7 +30,13 @@ const Header = () => {
         </div>
         <div className={styles.info}>
           <div className={styles.burger}>
-            <Image src={burger} alt="burger-header" width={250} height={280} />
+            <Image
+              className={styles.picture}
+              src={burger}
+              alt="burger-header"
+              quality={100}
+              priority
+            />
           </div>
           <div className={styles.text}>
             <h1 className={styles.mainText}>

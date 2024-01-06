@@ -14,14 +14,6 @@ type productsStoreArgs = {
   setCategory: (newCategory: number) => void;
 };
 
-type productCartArgs = {
-  cart: productType[];
-  totalPrice: number;
-  totalCount: number;
-  addToCart: (product: productType) => void;
-  removeProduct: (product: productType) => void;
-};
-
 export const useProductsStore = create<productsStoreArgs>((set, get) => ({
   products: [],
   isLoading: true,
@@ -40,6 +32,14 @@ export const useProductsStore = create<productsStoreArgs>((set, get) => ({
   },
   setCategory: (newCategory: number) => set({ category: newCategory }),
 }));
+
+type productCartArgs = {
+  cart: productType[];
+  totalPrice: number;
+  totalCount: number;
+  addToCart: (product: productType) => void;
+  removeProduct: (product: productType) => void;
+};
 
 export const useProductsCart = create<productCartArgs>()(
   devtools(
@@ -106,3 +106,12 @@ export const useProductsCart = create<productCartArgs>()(
     )
   )
 );
+
+// type cartLogicArgs = {
+//   isOpen: boolean;
+// };
+
+// export const useCartLogic = create<cartLogicArgs>()((set) => ({
+//   isOpen: false,
+//   setIsOpen
+// }));
