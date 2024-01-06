@@ -24,6 +24,7 @@ const CartItem: React.FC<productType> = ({
             width={64}
             height={52}
             src={imageUrl}
+            loading="lazy"
             alt="product's photo"
           />
         </div>

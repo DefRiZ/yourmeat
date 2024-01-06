@@ -1,5 +1,8 @@
 .root {
   background-color: #ffffff;
+  @media (max-width: 1200px) {
+    padding: 0 30px;
+  }
   .container {
     max-width: 1290px;
     margin: 0 auto;
@@ -8,21 +11,46 @@
     .info {
       display: flex;
       justify-content: space-between;
-
-      .phone,
-      .social {
-        h2 {
-          font-size: 2.4rem;
-          line-height: 2.4rem;
-          margin-bottom: 24px;
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+      .logo {
+        @media (max-width: 768px) {
+          margin-bottom: 43px;
+        }
+        @media (max-width: 426px) {
+          margin: 0;
         }
       }
-      .phone {
-        .number {
-          display: flex;
-          align-items: center;
-          font-size: 1.6rem;
-          line-height: 2rem;
+      .phoneAndSocial {
+        display: flex;
+        @media (max-width: 426px) {
+          flex-direction: column;
+        }
+        .phone,
+        .social {
+          h2 {
+            font-size: 2.4rem;
+            line-height: 2.4rem;
+            margin-bottom: 24px;
+            @media (max-width: 426px) {
+              font-size: 1.6rem;
+              line-height: 1.6rem;
+              margin-bottom: 8px;
+            }
+          }
+        }
+        .phone {
+          margin-right: 50px;
+          @media (max-width: 426px) {
+            margin: 24px 0;
+          }
+          .number {
+            display: flex;
+            align-items: center;
+            font-size: 1.6rem;
+            line-height: 2rem;
+          }
         }
       }
     }
