@@ -21,16 +21,7 @@ const Menu = () => {
   if (isLoading) {
     return <div className={styles.root}>{skeletonList}</div>;
   }
-  return (
-    <motion.div
-      initial={{ opacity: 0, x: -100 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1 }}
-      className={styles.root}
-    >
-      {productsList}
-    </motion.div>
-  );
+  return <div className={styles.root}>{productsList}</div>;
 };
 
 export default Menu;
