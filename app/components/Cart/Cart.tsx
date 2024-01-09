@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { useProductsCart } from "@/app/store";
 import { productType } from "@/types/productType";
 import Image from "next/image";
@@ -18,7 +19,12 @@ export const Cart = () => {
   ));
   if (!cart.length) {
     return (
-      <div className={styles.main}>
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        className={styles.main}
+      >
         <div className={styles.rootEmpty}>
           <div className={styles.header}>
             <h2 className={styles.title}>Корзина</h2>
@@ -26,7 +32,7 @@ export const Cart = () => {
           </div>
           <p className={styles.text}>Тут поки що порожньо</p>
         </div>
-      </div>
+      </motion.div>
     );
   }
   if (cart) {

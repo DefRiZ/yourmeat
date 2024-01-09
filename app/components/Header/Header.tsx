@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import styles from "./Header.module.scss";
 import logo from "../../../public/header/logo.svg";
@@ -22,7 +24,12 @@ const Header = () => {
         fill
         style={{ objectFit: "cover" }}
       />
-      <div className={styles.container}>
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 }}
+        className={styles.container}
+      >
         <div className={styles.logo}>
           <Link href="/">
             <Image src={logo} alt="logotype" width={150} height={29} />
@@ -46,7 +53,7 @@ const Header = () => {
             <p className={styles.secondText}>Безкоштовна доставка від 599грн</p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 };
