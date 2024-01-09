@@ -19,16 +19,7 @@ const Menu = () => {
     <SkeletonItem key={i} />
   ));
   if (isLoading) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        className={styles.root}
-      >
-        {skeletonList}
-      </motion.div>
-    );
+    return <div className={styles.root}>{skeletonList}</div>;
   }
   return (
     <motion.div
