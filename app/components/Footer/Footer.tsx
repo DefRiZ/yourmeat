@@ -17,18 +17,18 @@ const Footer = () => {
           </div>
           <div className={styles.phoneAndSocial}>
             <div className={styles.phone}>
-              <h2>Номер для заказа:</h2>
+              <h2>Номер для замовлення:</h2>
               <a href="tel:+3800000000" className={styles.number}>
                 <Image
                   className={styles.image}
                   src={phone}
                   alt="phone for call"
-                />{" "}
+                />
                 +(380) 000-00-00
               </a>
             </div>
             <div className={styles.social}>
-              <h2>Мы в соцсетях</h2>
+              <h2>Мы в мережах:</h2>
               <Link href="/*">
                 <Image src={telegram} alt="telegram link" />
               </Link>

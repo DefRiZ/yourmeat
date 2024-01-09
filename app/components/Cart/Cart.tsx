@@ -24,7 +24,7 @@ export const Cart = () => {
             <h2 className={styles.title}>Корзина</h2>
             <span className={styles.count}>{totalCount}</span>
           </div>
-          <p className={styles.text}>Тут пока пусто</p>
+          <p className={styles.text}>Тут поки що порожньо</p>
         </div>
       </div>
     );
@@ -44,11 +44,11 @@ export const Cart = () => {
             <div>{cartList}</div>
             <div className={styles.bottom}>
               <div className={styles.price}>
-                <span className={styles.totalText}>Итого</span>{" "}
+                <span className={styles.totalText}>Всього</span>{" "}
                 <span className={styles.total}>{totalPrice} грн.</span>
               </div>
               <div className={styles.btn}>
-                <button className={styles.button}>Оформить заказ</button>
+                <button className={styles.button}>Оформити замовлення</button>
               </div>
               <div className={styles.delivery}>
                 <Image
@@ -56,7 +56,7 @@ export const Cart = () => {
                   src={delivery}
                   alt="delivery icon"
                 />
-                <span className={styles.text}>Бесплатная доставка</span>
+                <span className={styles.text}>Безкоштовна доставка</span>
               </div>
             </div>
           </div>
@@ -65,11 +65,11 @@ export const Cart = () => {
               <div>{cartList}</div>
               <div className={styles.bottom}>
                 <div className={styles.price}>
-                  <span className={styles.totalText}>Итого</span>{" "}
+                  <span className={styles.totalText}>Всього</span>
                   <span className={styles.total}>{totalPrice} грн.</span>
                 </div>
                 <div className={styles.btn}>
-                  <button className={styles.button}>Оформить заказ</button>
+                  <button className={styles.button}>Оформити замовлення</button>
                 </div>
                 <div className={styles.delivery}>
                   <div className={styles.free}>
@@ -78,13 +78,13 @@ export const Cart = () => {
                       src={delivery}
                       alt="delivery icon"
                     />
-                    <span className={styles.text}>Бесплатная доставка</span>
+                    <span className={styles.text}>Безкоштовна доставка</span>
                   </div>
                   <div
                     onClick={() => console.log(setIsOpen(!true))}
                     className={styles.collapseBtn}
                   >
-                    <button className={styles.btn}>Свернуть</button>
+                    <button className={styles.btn}>Згорнути</button>
                   </div>
                 </div>
               </div>

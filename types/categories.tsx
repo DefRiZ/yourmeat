@@ -4,7 +4,7 @@ export type category = {
 };
 
 export const categories: category[] = [
-  { name: "Бургеры", imgUrl: "/categories/burgers.svg" },
-  { name: "Закуски", imgUrl: "/categories/snacks.svg" },
+  { name: "Бургери", imgUrl: "/categories/burgers.svg" },
+  { name: "Снеки", imgUrl: "/categories/snacks.svg" },
   { name: "Хот-доги", imgUrl: "/categories/hod-dogs.svg" },
 ];

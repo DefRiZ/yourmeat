@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
 import { useProductsStore } from "@/app/store";
+import { productType } from "@/types/productType";
 import Item from "../Item/Item";
 import styles from "./Menu.module.scss";
-import { productType } from "@/types/productType";
-
 const Menu = () => {
   const { products, fetchProducts, isLoading, category } = useProductsStore();
   React.useEffect(() => {

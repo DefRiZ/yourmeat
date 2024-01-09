@@ -24,6 +24,7 @@
       }
       .phoneAndSocial {
         display: flex;
+
         @media (max-width: 426px) {
           flex-direction: column;
         }
@@ -33,6 +34,7 @@
             font-size: 2.4rem;
             line-height: 2.4rem;
             margin-bottom: 24px;
+            font-weight: 400;
             @media (max-width: 426px) {
               font-size: 1.6rem;
               line-height: 1.6rem;

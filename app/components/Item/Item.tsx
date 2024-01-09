@@ -3,10 +3,9 @@ import Image from "next/image";
 import React from "react";
 
 import { productType } from "@/types/productType";
+import { useProductsCart } from "@/app/store";
 
 import styles from "./Item.module.scss";
-import Button from "../Button/Button";
-import { useProductsCart } from "@/app/store";
 
 const Item: React.FC<productType> = ({
   id,
@@ -17,10 +16,6 @@ const Item: React.FC<productType> = ({
   quantity,
 }) => {
   const { addToCart } = useProductsCart();
-
-  // const onClickAdd = () => {
-  //   addToCart({ id, imageUrl, title, price, weight, quantity });
-  // };
 
   return (
     <div className={styles.root}>
@@ -40,7 +35,7 @@ const Item: React.FC<productType> = ({
         }
         className={styles.button}
       >
-        Добавить
+        Додати
       </button>
     </div>
   );

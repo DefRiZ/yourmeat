@@ -40,10 +40,10 @@ const Header = () => {
           </div>
           <div className={styles.text}>
             <h1 className={styles.mainText}>
-              Только самые
-              <br /> <span>сочные бургеры!</span>
+              Тільки самі
+              <br /> <span>соковиті бургери!</span>
             </h1>
-            <p className={styles.secondText}>Бесплатная доставка от 599₽</p>
+            <p className={styles.secondText}>Безкоштовна доставка від 599грн</p>
           </div>
         </div>
       </div>
