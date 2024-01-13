@@ -10,7 +10,7 @@ import delivery from "../../../public/cart/delivery.svg";
 import styles from "./Cart.module.scss";
 
 export const Cart = () => {
-  const { cart, totalPrice, totalCount } = useProductsCart();
+  const { cart, totalPrice, totalCount, clearCart } = useProductsCart();
 
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
@@ -54,7 +54,9 @@ export const Cart = () => {
                 <span className={styles.total}>{totalPrice} грн.</span>
               </div>
               <div className={styles.btn}>
-                <button className={styles.button}>Оформити замовлення</button>
+                <button onClick={() => clearCart()} className={styles.button}>
+                  Оформити замовлення
+                </button>
               </div>
               <div className={styles.delivery}>
                 <Image
@@ -75,7 +77,9 @@ export const Cart = () => {
                   <span className={styles.total}>{totalPrice} грн.</span>
                 </div>
                 <div className={styles.btn}>
-                  <button className={styles.button}>Оформити замовлення</button>
+                  <button onClick={() => clearCart()} className={styles.button}>
+                    Оформити замовлення
+                  </button>
                 </div>
                 <div className={styles.delivery}>
                   <div className={styles.free}>

@@ -16,7 +16,6 @@ const Item: React.FC<productType> = ({
   quantity,
 }) => {
   const { addToCart } = useProductsCart();
-
   return (
     <div className={styles.root}>
       <Image

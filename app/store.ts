@@ -2,10 +2,6 @@ import { productType } from "@/types/productType";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
-type fetchArgs = {
-  category: number;
-};
-
 type productsStoreArgs = {
   products: productType[];
   isLoading: boolean;
@@ -39,6 +35,7 @@ type productCartArgs = {
   totalCount: number;
   addToCart: (product: productType) => void;
   removeProduct: (product: productType) => void;
+  clearCart: () => void;
 };
 
 export const useProductsCart = create<productCartArgs>()(
@@ -56,11 +53,10 @@ export const useProductsCart = create<productCartArgs>()(
 
             if (existingProductIndex !== -1) {
               // Product already in cart, increase quantity
-              const updatedCart = [...state.cart];
-              updatedCart[existingProductIndex].quantity += 1;
+              state.cart[existingProductIndex].quantity += 1;
 
               return {
-                cart: updatedCart,
+                cart: state.cart,
                 totalCount: state.totalCount + 1,
                 totalPrice: state.totalPrice + product.price,
               };
@@ -81,8 +77,6 @@ export const useProductsCart = create<productCartArgs>()(
             );
 
             if (existingProductIndex !== -1) {
-              // const updatedCart = [...state.cart];
-
               if (state.cart[existingProductIndex].quantity > 1) {
                 // Decrease quantity if more than 1
                 state.cart[existingProductIndex].quantity -= 1;
@@ -101,17 +95,11 @@ export const useProductsCart = create<productCartArgs>()(
             return state;
           });
         },
+        clearCart: () => {
+          set({ cart: [], totalPrice: 0, totalCount: 0 });
+        },
       }),
       { name: "burger storage" }
     )
   )
 );
-
-// type cartLogicArgs = {
-//   isOpen: boolean;
-// };
-
-// export const useCartLogic = create<cartLogicArgs>()((set) => ({
-//   isOpen: false,
-//   setIsOpen
-// }));
